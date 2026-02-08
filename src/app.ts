@@ -12,20 +12,20 @@ app.use(express.json());
 
 // Configure CORS middleware
 app.use(
-	cors({
-		origin: "http://localhost:3000", // Replace with your frontend's origin
-		methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed HTTP methods
-		credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-	})
+  cors({
+    origin: "http://localhost:3000", // Replace with your frontend's origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed HTTP methods
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  }),
 );
 
 // Auth routes
 app.all("/api/auth/*splat", toNodeHandler(auth));
 
 app.get("/test", (req: Request, res: Response, next: NextFunction) => {
-	res.send(`hi`);
+  res.send(`hi`);
 });
 
 app.listen(process.env.PORT, () => {
-	console.log(`Server is running at ${process.env.PORT}`);
+  console.log(`Server is running at ${process.env.PORT}`);
 });
