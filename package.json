@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./dist/app.js",
-    "dev": "nodemon -L -e ts --exec \"npm run build && npm start\"",
-    "build": "tsc"
+    "dev": "nodemon -L -e ts --exec \"tsx src/app.ts\"",
+    "build": "tsx"
   },
   "type": "module",
   "keywords": [],
@@ -30,6 +30,7 @@
     "nodemon": "^3.1.11",
     "prisma": "^7.5.0",
     "rimraf": "^6.1.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }

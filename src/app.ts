@@ -3,6 +3,7 @@ import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth.js";
 import dotenv from "dotenv";
 import cors from "cors";
+import UserRouter from "./routes/user.route";
 
 const app = express();
 dotenv.config(); //Reads .env file and makes it accessible via process.env
@@ -22,9 +23,7 @@ app.use(
 // Auth routes
 app.all("/api/auth/*splat", toNodeHandler(auth));
 
-app.get("/test", (req: Request, res: Response, next: NextFunction) => {
-  res.send(`hi`);
-});
+app.use("/auth", UserRouter);
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.send(`hello`);
